@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="script.js" defer></script>
+
+        <title>Frontend Mentor | Tip calculator app</title>
+
+    </head>
+    <body>
+        <header>
+            <h1>SPLI<br>TTER</h1>
+        </header>
+        <main>
+            <form method="get" action="">
+                <section class="left-zone">
+
+                    <fieldset>
+                        <label class="title" for="bills">Bill</label>
+                        <div class="left-zone__input">
+                            <img src="images/icon-dollar.svg" alt="$ dollars">
+                            <input type="text" id="bills" placeholder="0">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="title">Select Tip %</legend>
+                        <div class="input-container">
+                            <div><input id="btnOne" type="radio" value="5" name="tips"><label for="btnOne">5%</label></div>
+                            <div><input id="btnTwo" type="radio" value="10" name="tips"><label for="btnTwo">10%</label></div>
+                            <div><input id="btnThree" type="radio" value="15" name="tips"><label for="btnThree">15%</label></div>
+                            <div><input id="btnFour" type="radio" value="25" name="tips"><label for="btnFour">25%</label></div>
+                            <div><input id="btnFive" type="radio" value="50" name="tips"><label for="btnFive">50%</label></div>
+                            <input id="btnCustom" type="text" placeholder="Custom"><label for="btnCustom"></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="error"><label class="title" for="nbrPeople">Number of People</label><span class="title none">Can't be zero</span></div>
+                        <div class="left-zone__input">
+                            <img src="images/icon-person.svg" alt="person">
+                            <input type="text" id="nbrPeople" placeholder="0">
+                        </div>
+                    </fieldset>
+                </section>
+
+                <section class="right-zone">
+                    <fieldset>
+                        <div class="right-zone__input">
+                            <div class="right-zone__input__text">
+                                <h2>Tip Amount</h2>
+                                <p>/ person</p>
+                            </div>
+
+                            <div class="right-zone__input__count" id="amount">
+                                <!--display-->$0.00
+                            </div>
+                        </div>
+
+                        <div class="right-zone__input">
+                            <div class="right-zone__input__text">
+                                <h2>Total</h2>
+                                <p>/ person</p>
+                            </div>
+
+                            <div class="right-zone__input__count" id="total">
+                                <!--display-->$0.00
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button id="reset">Reset</button>
+                </section>
+            </form>
+        </main>
+
+        <footer class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://github.com/chanwinharold">chanwinharold</a>.
+        </footer>
+    </body>
+</html>

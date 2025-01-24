@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* { margin: 0; }
+
+// Variables
+$bodyBgColor: hsl(185, 41%, 84%);
+$inputBgColor: hsl(186, 14%, 43%);
+$inputBorColor: hsl(172, 67%, 45%);
+$mainColor: white;
+$secondaryColor: hsl(183, 100%, 15%);
+$hoverColor: hsl(184, 14%, 56%);
+$txColor: hsl(189, 41%, 97%);
+
+// Mixin
+@mixin flexbox($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+body {
+    min-height: 100vh;
+    @include flexbox(column, center, center);
+    font-family: "Space Mono", sans-serif;
+    font-size: 1.1em;
+    background-color: $bodyBgColor;
+}
+
+h1 {
+    font-size: 1em;
+    letter-spacing: 0.5em;
+    color: $secondaryColor;
+    margin-bottom: 1rem;
+    @media screen and (max-width: 550px) {
+        margin-top: 1rem;
+    }
+}
+
+main {
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: $mainColor;
+
+    form {
+        @include flexbox(row, space-between, none);
+        gap: 50px;
+        padding: 1.5rem;
+
+        @media screen and (max-width: 550px) {
+            @include flexbox(column, none, none);
+        }
+    }
+}
+
+.left-zone {
+    width: 50%;
+    @include flexbox(column, none, none);
+    gap: 15px;
+
+    @media screen and (max-width: 550px) {
+        width: 100%;
+    }
+
+    fieldset {
+        @include flexbox(column, none, none);
+        gap: 5px;
+
+        .title {
+            font-size: 0.8em;
+        }
+    }
+    &__input {
+        position: relative;
+
+        img {
+            position: absolute;
+            top: 25%;
+            left: 10px;
+            pointer-events: none;
+        }
+        input {
+            width: 100%;
+            height: 40px;
+            text-align: right;
+            padding-right: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: $bodyBgColor;
+            color: $secondaryColor;
+            font-size: 1.5em;
+            font-weight: 700;
+
+            &:focus {
+                outline: 2px solid $inputBorColor;
+            }
+            &::placeholder {
+                color: $secondaryColor;
+                font-family: "Space Mono", sans-serif;
+                opacity: 0.5;
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+.right-zone {
+    width: 50%;
+    @include flexbox(column, space-between, none);
+    gap: 15px;
+    border-radius: 10px;
+    background-color: $secondaryColor;
+    padding: 1.5rem;
+
+    @media screen and (max-width: 550px) {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__input {
+        width: 100%;
+        @include flexbox(row, space-between, none);
+        gap: 15px;
+
+        &__text {
+
+            h2 {
+                font-size: 0.8em;
+                color: white;
+            }
+            p {
+                font-size: 0.6em;
+                color: $txColor;
+            }
+        }
+        &__count {
+            color: $inputBorColor;
+            font-size: 2em;
+            font-weight: 700;
+        }
+    }
+    button {
+        width: 100%;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        background-color: $inputBorColor;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $secondaryColor;
+        align-self: center;
+        justify-self: flex-end;
+    }
+}
+
+.input-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+
+    input[type="radio"] {
+        display: none;
+        &:checked + label {
+            color: $secondaryColor;
+            background-color: $inputBorColor;
+        }
+
+        & + label {
+            display: inline-block;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: 700;
+            color: $txColor;
+            background-color: $secondaryColor;
+        }
+    }
+
+    input[type="text"] {
+        width: 100%;
+        border: none;
+        text-align: right;
+        border-radius: 5px;
+        background-color: $bodyBgColor;
+        color: $secondaryColor;
+        font-weight: 700;
+        &:focus {
+            outline: 2px solid $inputBorColor;
+        }
+        &::placeholder {
+            color: $secondaryColor;
+            font-family: "Space Mono", sans-serif;
+            opacity: 0.5;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+    }
+}
+
+fieldset { border: none; }
+label[for="btnCustom"] { background-color: $bodyBgColor; color: $secondaryColor; }
+.error { @include flexbox(row, space-between, none); span { color: red; } }
+.none { display: none; }
+.attribution { font-size: 11px; text-align: center; .attribution a { color: hsl(228, 45%, 44%); } }
